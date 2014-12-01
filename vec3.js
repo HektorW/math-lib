@@ -29,16 +29,16 @@
     return V;
   };
 
-  Vec3.copy = function(V, B) {
-    V[0] = B[0];
-    V[1] = B[1];
-    V[2] = B[2];
-    return V;
+  Vec3.copy = function(a, b) {
+    a[0] = b[0];
+    a[1] = b[1];
+    a[2] = b[2];
+    return a;
   };
 
-  Vec3.clone = function(B) {
-    var V = new _arrType(3);
-    return Vec3.copy(V, B);
+  Vec3.clone = function(b) {
+    var a = new _arrType(3);
+    return Vec3.copy(a, b);
   };
 
   Vec3.set = function(V, x, y, z) {
@@ -72,44 +72,53 @@
     return V;
   };
 
-  Vec3.add = function(V, B) {
-    V[0] += B[0];
-    V[1] += B[1];
-    V[2] += B[2];
-    return V;
+  Vec3.add = function(a, b) {
+    a[0] += b[0];
+    a[1] += b[1];
+    a[2] += b[2];
+    return a;
   };
 
-  Vec3.subtract = function(V, B) {
-    V[0] -= B[0]; V[1] -= B[1]; V[2] -= B[2];
-    return V;
+  Vec3.subtract = function(a, b) {
+    a[0] -= b[0];
+    a[1] -= b[1];
+    a[2] -= b[2];
+    return a;
   };
 
-  Vec3.multiply = function(V, B) {
-    V[0] *= B[0];
-    V[1] *= B[1];
-    V[2] *= B[2];
-    return V;
+  Vec3.multiply = function(a, b) {
+    a[0] *= b[0];
+    a[1] *= b[1];
+    a[2] *= b[2];
+    return a;
   };
 
-  Vec3.divide = function(V, B) {
-    V[0] /= B[0];
-    V[1] /= B[1];
-    V[2] /= B[2];
-    return V;
+  Vec3.divide = function(a, b) {
+    a[0] /= b[0];
+    a[1] /= b[1];
+    a[2] /= b[2];
+    return a;
   };
 
 
-  Vec3.cross = function(OUT, V, B) {
-    OUT[0] = V[1] * B[2] - V[2] * B[1];
-    OUT[1] = V[2] * B[0] - V[0] * B[2];
-    OUT[2] = V[0] * B[1] - V[1] * B[0];
-    return OUT;
+  Vec3.cross = function(out, a, b) {
+    out[0] = a[1] * b[2] - a[2] * b[1];
+    out[1] = a[2] * b[0] - a[0] * b[2];
+    out[2] = a[0] * b[1] - a[1] * b[0];
+    return out;
   };
 
-  Vec3.dot = function(V, B) {
-    return V[0] * B[0] +
-           V[1] * B[1] +
-           V[2] * B[2];
+  Vec3.dot = function(a, b) {
+    return a[0] * b[0] +
+           a[1] * b[1] +
+           a[2] * b[2];
+  };
+
+  Vec3.lerp = function(out, a, b, lerp) {
+    out[0] = a[0] + lerp * (b[0] - a[0]);
+    out[1] = a[1] + lerp * (b[1] - a[1]);
+    out[2] = a[2] + lerp * (b[2] - a[2]);
+    return out;
   };
 
   return Vec3;
