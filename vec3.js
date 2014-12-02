@@ -17,15 +17,31 @@
   var Vec3 = {};
 
 
-  // Constants
-  Vec3.UP = Vec3.set(Vec3.create(), 0, 1, 0);
-  Vec3.RIGHT = Vec3.set(Vec3.create(), 1, 0, 0);
-  Vec3.FORWARD = Vec3.set(Vec3.create(), 0, 0, 1);
 
+  /** @const */ Vec3.UP = Vec3.set(Vec3.create(), 0, 1, 0);
+  /** @const */ Vec3.RIGHT = Vec3.set(Vec3.create(), 1, 0, 0);
+  /** @const */ Vec3.FORWARD = Vec3.set(Vec3.create(), 0, 0, 1);
+
+
+
+  /**
+   * Creates a new Vec3 instance.
+   *
+   * @return {Vec3} The created Vec3 instance.
+   */
   Vec3.create = function() {
     return new _arrType(3);
   };
 
+
+  /**
+   * Creates a new Vec3 and instantiates with the supplied values.
+   * 
+   * @param  {Number} x X-value for vector
+   * @param  {Number} y Y-value for vector
+   * @param  {Number} z Z-value for vector
+   * @return {Vec3}     The created Vec3 instance.
+   */
   Vec3.fromvalues = function(x, y, z) {
     var V = new _arrType(3);
     V[0] = x;
@@ -34,18 +50,46 @@
     return V;
   };
 
-  Vec3.copy = function(a, b) {
-    a[0] = b[0];
-    a[1] = b[1];
-    a[2] = b[2];
-    return a;
+
+  /**
+   * Copy values from Vec3 b to Vec3 out.
+   *
+   * @param  {Vec3} out Vector which receives values
+   * @param  {Vec3} b   Vector to copy values from
+   * @return {Vec3}     Returns out vector with new values
+   */
+  Vec3.copy = function(out, b) {
+    out[0] = b[0];
+    out[1] = b[1];
+    out[2] = b[2];
+    return out;
   };
 
+
+  /**
+   * Creates a new Vec3 with values from Vec3 b
+   * 
+   * @param  {Vec3} b Vec3 to clone
+   * @return {Vec3}   A clone of Vec3 b
+   */
   Vec3.clone = function(b) {
-    var a = new _arrType(3);
-    return Vec3.copy(a, b); // can be done inline instead of function call
+    var out = new _arrType(3);
+    out[0] = b[0];
+    out[1] = b[1];
+    out[2] = b[2];
+    return out;
   };
 
+
+  /**
+   * Set values in Vec3 out
+   *
+   * @param {Vec3} out   Vec3 whose values are set
+   * @param {Number} x   X-value to set in out
+   * @param {Number} y   Y-value to set in out
+   * @param {Number} z   Z-value to set in out
+   * @return {Vec3}      Returns out with new values set.
+   */
   Vec3.set = function(out, x, y, z) {
     out[0] = x;
     out[1] = y;
@@ -53,20 +97,29 @@
     return out;
   };
 
-  Vec3.scale = function(V, s) {
-    V[0] *= s;
-    V[1] *= s;
-    V[2] *= s;
-    return V;
+
+  /**
+   * Scales Vec3 a by amount s and sets result in Vec3 out
+   *
+   * @param  {Vec3} out   Vec3 which receives the new values
+   * @param  {Vec3} a     Vec3 whose values are scaled
+   * @param  {Number} s   Amout to scale a by
+   * @return {Vec3}       Returns out with scaled values from a by s
+   */
+  Vec3.scale = function(out, a, s) {
+    out[0] = a[0] * s;
+    out[1] = a[1] * s;
+    out[2] = a[2] * s;
+    return out;
   };
 
 
   /**
    * Returns the length of a Vec3
-   * @param  {Vec3} V
+   * @param  {Vec3} v
    * @return {Number}
    */
-  Vec3.length = function(V) {
+  Vec3.length = function(v) {
     var x = v[0],
         y = v[1],
         Z = v[2];
