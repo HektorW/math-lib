@@ -25,9 +25,9 @@
 
 
   /**
-   * Creates a new Vec3 instance.
+   * Creates a new `Vec3` instance.
    *
-   * @return {Vec3} The created Vec3 instance.
+   * @return {Vec3} The created `Vec3` instance.
    */
   Vec3.create = function() {
     return new _arrType(3);
@@ -35,12 +35,12 @@
 
 
   /**
-   * Creates a new Vec3 and instantiates with the supplied values.
+   * Creates a new `Vec3` and instantiates with the supplied values.
    * 
    * @param  {Number} x X-value for vector
    * @param  {Number} y Y-value for vector
    * @param  {Number} z Z-value for vector
-   * @return {Vec3}     The created Vec3 instance.
+   * @return {Vec3}     The created `Vec3` instance.
    */
   Vec3.fromvalues = function(x, y, z) {
     var V = new _arrType(3);
@@ -52,7 +52,7 @@
 
 
   /**
-   * Copy values from Vec3 b to Vec3 out.
+   * Copy values from `Vec3` b to `Vec3` out.
    *
    * @param  {Vec3} out Vector which receives values
    * @param  {Vec3} b   Vector to copy values from
@@ -67,10 +67,10 @@
 
 
   /**
-   * Creates a new Vec3 with values from Vec3 b
+   * Creates a new `Vec3` with values from `Vec3` b
    * 
-   * @param  {Vec3} b Vec3 to clone
-   * @return {Vec3}   A clone of Vec3 b
+   * @param  {Vec3} b `Vec3` to clone
+   * @return {Vec3}   A clone of `Vec3` b
    */
   Vec3.clone = function(b) {
     var out = new _arrType(3);
@@ -82,9 +82,9 @@
 
 
   /**
-   * Set values in Vec3 out
+   * Set values in `Vec3` out
    *
-   * @param {Vec3} out   Vec3 whose values are set
+   * @param {Vec3} out   `Vec3` whose values are set
    * @param {Number} x   X-value to set in out
    * @param {Number} y   Y-value to set in out
    * @param {Number} z   Z-value to set in out
@@ -99,10 +99,10 @@
 
 
   /**
-   * Scales Vec3 a by amount s and sets result in Vec3 out
+   * Scales `Vec3` a by amount s and sets result in `Vec3` out
    *
-   * @param  {Vec3} out   Vec3 which receives the new values
-   * @param  {Vec3} a     Vec3 whose values are scaled
+   * @param  {Vec3} out   `Vec3` which receives the new values
+   * @param  {Vec3} a     `Vec3` whose values are scaled
    * @param  {Number} s   Amout to scale a by
    * @return {Vec3}       Returns out with scaled values from a by s
    */
@@ -132,7 +132,7 @@
 
   
   /**
-   * Returns the squared length of a Vec3 V
+   * Returns the squared length of a `Vec3` V
    * @param  {Vec3} V
    * @return {Number}
    */
@@ -145,7 +145,7 @@
 
 
   /**
-   * Returns the distance between two Vec3 a and b
+   * Returns the distance between two `Vec3` a and b
    * @param  {Vec3} a The first Vec3
    * @param  {Vec3} b The second Vec3
    * @return {Number} The distance between a and b
@@ -159,7 +159,7 @@
 
 
   /** 
-   * Returns the squared distance between two Vec3 a and b.
+   * Returns the squared distance between two `Vec3` a and b.
    * Avoids using a sqrt calculation.
    * 
    * @param  {Vec3} a The first Vec3
@@ -176,10 +176,10 @@
 
 
   /**
-   * Normalizes a Vec3 v and puts the result in out, settings it's length to 1
+   * Normalizes a `Vec3` v and puts the result in out, settings it's length to 1
    * 
-   * @param  {Vec3} out Vec3 which gets the result
-   * @param  {Vec3} v Vec3 to normalize
+   * @param  {Vec3} out `Vec3` which gets the result
+   * @param  {Vec3} v `Vec3` to normalize
    * @return {Vec3} return out as a normlized version of a
    */
   Vec3.normalize = function(out, a) {
