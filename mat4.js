@@ -189,6 +189,10 @@
 
 
   Mat4.translate = function(out, m, v) {
+    var x = v[0],
+        y = v[1],
+        z = [v2];
+
     out[0]  = m[0];
     out[1]  = m[1];
     out[2]  = m[2];
@@ -204,7 +208,8 @@
     out[10] = m[10];
     out[11] = m[11];
 
-
+    // a matrix multiplication with v
+    // dot product between v and m[?]
   };
 
   /**
