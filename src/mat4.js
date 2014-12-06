@@ -19,6 +19,32 @@
     return new _arrType(16);
   };
 
+  Mat4.fromValues = function(a00, a01, a02, a03, a10, a11, a12, a13, a20, a21, a22, a23, a30, a31, a32, a33) {
+    var out = new _arrType(16);
+
+    out[0]  = a00;
+    out[1]  = a01;
+    out[2]  = a02;
+    out[3]  = a03;
+
+    out[4]  = a10;
+    out[5]  = a11;
+    out[6]  = a12;
+    out[7]  = a13;
+
+    out[8]  = a20;
+    out[9]  = a21;
+    out[10] = a22;
+    out[11] = a23;
+
+    out[12] = a30;
+    out[13] = a31;
+    out[14] = a32;
+    out[15] = a33;
+
+    return out;
+  };
+
   Mat4.copy = function(out, b) {
     out[0]  = b[0];
     out[1]  = b[1];
@@ -46,6 +72,32 @@
   Mat4.clone = function(b) {
     return Mat4.copy(Mat4.create(), b);
   };
+
+
+  Mat4.set = function(out, a00, a01, a02, a03, a10, a11, a12, a13, a20, a21, a22, a23, a30, a31, a32, a33) {
+    out[0]  = a00;
+    out[1]  = a01;
+    out[2]  = a02;
+    out[3]  = a03;
+
+    out[4]  = a10;
+    out[5]  = a11;
+    out[6]  = a12;
+    out[7]  = a13;
+
+    out[8]  = a20;
+    out[9]  = a21;
+    out[10] = a22;
+    out[11] = a23;
+
+    out[12] = a30;
+    out[13] = a31;
+    out[14] = a32;
+    out[15] = a33;
+
+    return out;
+  };
+
 
   Mat4.identity = function(out) {
     out[0]  = 1;
@@ -93,6 +145,8 @@
     out[13] = a[13] + b[13];
     out[14] = a[14] + b[14];
     out[15] = a[15] + b[15];
+
+    return out;
   };
 
 
@@ -116,6 +170,8 @@
     out[13] = a[13] - b[13];
     out[14] = a[14] - b[14];
     out[15] = a[15] - b[15];
+
+    return out;
   };
 
 
