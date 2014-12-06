@@ -1,0 +1,37 @@
+{
+  "name": "math-lib",
+  "version": "0.0.0",
+  "description": "3d math lib",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "nodeunit": "~0.9.0",
+    "underscore": "~1.7.0"
+  },
+  "scripts": {
+    "test": "node test/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HektorW/math-lib"
+  },
+  "keywords": [
+    "matrix",
+    "quaternion",
+    "math",
+    "3d",
+    "graphics",
+    "vector",
+    "vec3",
+    "mat4"
+  ],
+  "author": "Hektor Wallin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HektorW/math-lib/issues"
+  },
+  "homepage": "https://github.com/HektorW/math-lib"
+}

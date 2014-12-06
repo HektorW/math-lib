@@ -18,11 +18,6 @@
 
 
 
-  /** @const */ Vec3.UP = Vec3.set(Vec3.create(), 0, 1, 0);
-  /** @const */ Vec3.RIGHT = Vec3.set(Vec3.create(), 1, 0, 0);
-  /** @const */ Vec3.FORWARD = Vec3.set(Vec3.create(), 0, 0, 1);
-
-
 
   /**
    * Creates a new `Vec3` instance.
@@ -42,7 +37,7 @@
    * @param  {Number} z Z-value for vector
    * @return {Vec3}     The created `Vec3` instance.
    */
-  Vec3.fromvalues = function(x, y, z) {
+  Vec3.fromValues = function(x, y, z) {
     var V = new _arrType(3);
     V[0] = x;
     V[1] = y;
@@ -122,7 +117,7 @@
   Vec3.length = function(v) {
     var x = v[0],
         y = v[1],
-        Z = v[2];
+        z = v[2];
     return _sqrt(
       x * x +
       y * y +
@@ -136,7 +131,7 @@
    * @param  {Vec3} V
    * @return {Number}
    */
-  Vec3.lengthSquared = function(V) {
+  Vec3.lengthSquared = function(v) {
     var x = v[0],
         y = v[1],
         z = v[2];
@@ -250,10 +245,14 @@
   };
 
 
-
   Vec3.str = function(v) {
     return 'vec3(' + v[0] + ', ' + v[1] + ', ' + v[2] + ')';
   };
+
+
+  /** @const */ Vec3.UP = Vec3.set(Vec3.create(), 0, 1, 0);
+  /** @const */ Vec3.RIGHT = Vec3.set(Vec3.create(), 1, 0, 0);
+  /** @const */ Vec3.FORWARD = Vec3.set(Vec3.create(), 0, 0, 1);
 
 
   return Vec3;
