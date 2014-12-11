@@ -5,7 +5,7 @@ var Vec3 = require('../src/vec3.js');
 
 
 // Create
-exports.vec3Create = function(test) {
+exports.Create = function(test) {
   var t = [0, 0, 0];
   var v = Vec3.create();
 
@@ -17,7 +17,7 @@ exports.vec3Create = function(test) {
 };
 
 // Create from values
-exports.vec3Fromvalues = function(test) {
+exports.Fromvalues = function(test) {
 
   test.strictEqual(Vec3.fromValues(0, 0, 0).length, 3, 'Creating Vec3 with 3 values give array of length 3');
   test.strictEqual(Vec3.fromValues(0, 0, 0, 0).length, 3, 'Creating Vec3 with 4 values give array of length 3');
@@ -30,7 +30,7 @@ exports.vec3Fromvalues = function(test) {
 };
 
 // Copy
-exports.vec3Copy = function(test) {
+exports.Copy = function(test) {
   var v = Vec3.fromValues(1, 4, 5);
   var copy = Vec3.copy(Vec3.create(), v);
 
@@ -41,7 +41,7 @@ exports.vec3Copy = function(test) {
 };
 
 // Clone
-exports.vec3Clone = function(test) {
+exports.Clone = function(test) {
   var v = Vec3.fromValues(1, 4, 5);
   var clone = Vec3.clone(v);
 
@@ -52,7 +52,7 @@ exports.vec3Clone = function(test) {
 };
 
 // Set
-exports.vec3Set = function(test) {
+exports.Set = function(test) {
   var v = Vec3.create();
 
   test.arraysEqual(Vec3.set(v, 1, 4, 5), [1, 4, 5]);
@@ -64,7 +64,7 @@ exports.vec3Set = function(test) {
 };
 
 // Scale
-exports.vec3Scale = function(test) {
+exports.Scale = function(test) {
   var v;
 
   v = Vec3.fromValues(1, 3, 4);
@@ -83,7 +83,7 @@ exports.vec3Scale = function(test) {
 
 
 // Length
-exports.vec3Length = function(test) {
+exports.Length = function(test) {
 
   test.equal(Vec3.length(Vec3.fromValues(1, 0, 0)), 1, '[1, 0, 0]');
   test.equal(Vec3.length(Vec3.fromValues(0, 0, 0)), 0, '[0, 0, 0]');
@@ -94,11 +94,39 @@ exports.vec3Length = function(test) {
   test.done();
 };
 
-exports.vec3LengthSquared = function(test) {
+// Length squared
+exports.LengthSquared = function(test) {
 
   test.equal(Vec3.lengthSquared(Vec3.fromValues(0, 0, 0)), 0, '[0, 0, 0]');
   test.equal(Vec3.lengthSquared(Vec3.fromValues(1, 0, 0)), 1, '[1, 0, 0]');
   test.equals(Vec3.lengthSquared(Vec3.fromValues(3, 2, -1)), 14, '[3, 2, -1]');
+  var v = Vec3.fromValues(1, 1, 1);
+  test.nearlyEquals(Math.pow(Vec3.length(v), 2), Vec3.lengthSquared(v), 'Vec3.length^2 == Vec3.lengthSquared');
+  test.nearlyEquals(Math.sqrt(Vec3.lengthSquared(v)), Vec3.length(v), 'sqrt(Vec3.lengthSquared) == Vec3.length');
 
   test.done();
 };
+
+// Distance
+exports.Distance = function(test) {
+
+  var v = Vec3.fromValues(1, 1, 1);
+  var u = Vec3.fromValues(0, 0, 0);
+
+  test.equals(Vec3.distance(u, v), Vec3.distance(v, u), 'distance returns same result in both orders');
+  test.equals(Vec3.distance(u, v), Vec3.length(v), 'distance from [0, 0, 0] to [1, 1, 1] is same as length of [1, 1, 1]');
+  test.equals(Vec3.distance(v, v), 0, 'distance between one vector is 0');
+
+  Vec3.set(v, 3, 4, 5);
+  Vec3.set(u, 6, 1, 3);
+  test.nearlyEquals(Vec3.distance(v, u), 4.69041575982343, '[3, 4, 5] -> [6, 1, 3]');
+  
+  test.done();
+};
+
+// Distance squared
+/*exports.DistanceSquared = function(test) {
+  test.ok(false, 'vec3DistanceSquared tests not written');
+
+  test.done();
+};*/
